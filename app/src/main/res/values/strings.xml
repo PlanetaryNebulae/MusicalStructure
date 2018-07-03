@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Musical Structure</string>
+    <string name="show">Organize By</string>
+    <string name="songs_list">Songs</string>
+    <string name="organize_songs">Organized by Song</string>
+    <string name="artists_list">Artists</string>
+    <string name="organize_artists">Organized by Artist</string>
+    <string name="albums_list">Albums</string>
+    <string name="organize_albums">Organized by Album</string>
+    <string name="currently_playing">Currently Playing</string>
+</resources>
