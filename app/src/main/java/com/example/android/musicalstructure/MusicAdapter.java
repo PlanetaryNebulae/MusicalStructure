@@ -30,34 +30,34 @@ public class MusicAdapter extends ArrayAdapter<Music> {
                     R.layout.activity_songs, parent, false);
         }
 
-        // Get the {@link AndroidFlavor} object located at this position in the list
+        // Get the Music object located at this position in the list
         Music currentMusic = getItem(position);
 
-        // Find the TextView in the list_item.xml layout with the ID version_name
+        // Find the TextView in the list_item.xml layout with the ID song_name
         TextView songTextView = (TextView) listItemView.findViewById(R.id.song_name);
-        // Get the version name from the current AndroidFlavor object and
-        // set this text on the name TextView
+        // Get the song name from the current Music object and
+        // set this text on the song TextView
         songTextView.setText(currentMusic.getSongName());
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find the TextView in the list_item.xml layout with the ID artist_name
         TextView artistTextView = (TextView) listItemView.findViewById(R.id.artist_name);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
+        // Get the artist name from the current Music object and
+        // set this text on the artist TextView
         artistTextView.setText(currentMusic.getArtistName());
 
-        // Find the TextView in the list_item.xml layout with the ID version_number
+        // Find the TextView in the list_item.xml layout with the ID album_name
         TextView albumTextView = (TextView) listItemView.findViewById(R.id.album_name);
-        // Get the version number from the current AndroidFlavor object and
-        // set this text on the number TextView
+        // Get the album name from the current Music object and
+        // set this text on the album TextView
         albumTextView.setText(currentMusic.getAlbumName());
 
-        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
+        // Find the ImageView in the list_item.xml layout with the ID album_cover
         ImageView albumCoverView = (ImageView) listItemView.findViewById(R.id.album_cover);
-        // Get the image resource ID from the current AndroidFlavor object and
-        // set the image to iconView
+        // Get the image resource ID from the current Music object and
+        // set the image to albumCoverView
         albumCoverView.setImageResource(currentMusic.getImageResourceId());
 
-        // Return the whole list item layout (containing 2 TextViews and an ImageView)
+        // Return the whole list item layout (containing 3 TextViews and an ImageView)
         // so that it can be shown in the ListView
         return listItemView;
     }

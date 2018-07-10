@@ -14,7 +14,7 @@ public class SongsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_songs);
 
         //An array list of songs organized alphabetically by song.
-        ArrayList<Music> musics = new ArrayList<>();
+        ArrayList<Music> musics = new ArrayList<Music>();
         musics.add(new Music("Creep", "deadmau5", "While(1<2)", R.drawable.while_album_cover));
         musics.add(new Music("Fighter", "WRLD", "Single", R.drawable.fighter_cover));
         musics.add(new Music("Left in the Snow", "No Mana", "Above the Blue EP", R.drawable.above_blue_cover));
@@ -33,7 +33,7 @@ public class SongsActivity extends AppCompatActivity {
         musics.add(new Music("Whispers in the Mist", "Varien", "Single", R.drawable.whispers_mist_cover));
 
         // Create an {@link MusicAdapter}, whose data source is a list of
-        // {@link Music}s. The adapter knows how to create list item views for each item
+        // {@link Music}. The adapter knows how to create list item views for each item
         // in the list.
         MusicAdapter musicAdapter = new MusicAdapter(this, musics);
 
