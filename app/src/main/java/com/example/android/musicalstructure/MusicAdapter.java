@@ -27,7 +27,7 @@ public class MusicAdapter extends ArrayAdapter<Music> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.activity_songs, parent, false);
+                    R.layout.list_item, parent, false);
         }
 
         // Get the Music object located at this position in the list

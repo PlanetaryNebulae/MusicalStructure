@@ -11,7 +11,7 @@ public class SongsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_songs);
+        setContentView(R.layout.music_list);
 
         //An array list of songs organized alphabetically by song.
         ArrayList<Music> musics = new ArrayList<Music>();
