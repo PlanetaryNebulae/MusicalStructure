@@ -61,43 +61,6 @@ public class MusicAdapter extends ArrayAdapter<Music> {
         // so that it can be shown in the ListView
         return listItemView;
 
-
-        //One of my sad attempts at trying to get this to work. I feel like other attempts were closer to what I need, but oh well.
-       /* private Context context;
-
-         public MusicAdapter(Context context) {
-            this.context = context;
-        }
-
-        //An attempt to send information to the CurrentlyPlayingActivity
-        // Set a click listener on that View
-        playing.setOnClickListener(View) {
-
-            public void onClick (View view){
-
-                // The code in this method will be executed when the currently playing View is clicked on.
-
-                Intent playingIntent = new Intent(MusicAdapter.this, CurrentlyPlayingActivity.class);
-                context.startActivity(playingIntent);
-            }
-        });*/
-
-        //Example code from Stack Overflow
-       /* public class MyAdapter extends Adapter {
-            private Context context;
-
-            public MyAdapter(Context context) {
-                this.context = context;
-            }
-
-            public View getView(...){
-                View v;
-                v.setOnClickListener(new OnClickListener() {
-                    void onClick() {
-                        context.startActivity(...);
-                    }
-                });
-            }*/
     }
 }
 

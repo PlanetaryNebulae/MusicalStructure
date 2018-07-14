@@ -1,7 +1,10 @@
 package com.example.android.musicalstructure;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -35,11 +38,27 @@ public class SongsActivity extends AppCompatActivity {
         // Create an {@link MusicAdapter}, whose data source is a list of
         // {@link Music}. The adapter knows how to create list item views for each item
         // in the list.
-        MusicAdapter musicAdapter = new MusicAdapter(this, musics);
+        final MusicAdapter musicAdapter = new MusicAdapter(this, musics);
 
         // Get a reference to the ListView, and attach the adapter to the listView.
         ListView listView = (ListView) findViewById(R.id.listview_music);
         listView.setAdapter(musicAdapter);
+
+        //When user clicks on a song, it takes them to the Currently Playing screen.
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+
+                Music currentMusic = musics.get(i);
+
+                Intent currentlyPlayingIntent = new Intent(getBaseContext(), CurrentlyPlayingActivity.class);
+                currentlyPlayingIntent.putExtra(currentMusic.getImageResourceId());
+                currentlyPlayingIntent.putExtra(currentMusic.getSongName());
+                currentlyPlayingIntent.putExtra(currentMusic.getArtistName());
+                currentlyPlayingIntent.putExtra(currentMusic.getAlbumName());
+                startActivity(currentlyPlayingIntent);
+            }
+        });
 
     }
 }
