@@ -11,13 +11,18 @@ import java.util.ArrayList;
 
 public class SongsActivity extends AppCompatActivity {
 
+    private static final String ALBUM_COVER = "album_cover";
+    private static final String SONG_NAME = "song_name";
+    private static final String ARTIST_NAME = "artist_name";
+    private static final String ALBUM_NAME = "album_name";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.music_list);
 
         //An array list of songs organized alphabetically by song.
-        ArrayList<Music> musics = new ArrayList<Music>();
+        final ArrayList<Music> musics = new ArrayList<Music>();
         musics.add(new Music("Creep", "deadmau5", "While(1<2)", R.drawable.while_album_cover));
         musics.add(new Music("Fighter", "WRLD", "Single", R.drawable.fighter_cover));
         musics.add(new Music("Left in the Snow", "No Mana", "Above the Blue EP", R.drawable.above_blue_cover));
@@ -51,11 +56,11 @@ public class SongsActivity extends AppCompatActivity {
 
                 Music currentMusic = musics.get(i);
 
-                Intent currentlyPlayingIntent = new Intent(getBaseContext(), CurrentlyPlayingActivity.class);
-                currentlyPlayingIntent.putExtra(currentMusic.getImageResourceId());
-                currentlyPlayingIntent.putExtra(currentMusic.getSongName());
-                currentlyPlayingIntent.putExtra(currentMusic.getArtistName());
-                currentlyPlayingIntent.putExtra(currentMusic.getAlbumName());
+                Intent currentlyPlayingIntent = new Intent(SongsActivity.this, CurrentlyPlayingActivity.class);
+                currentlyPlayingIntent.putExtra(ALBUM_COVER, currentMusic.getImageResourceId());
+                currentlyPlayingIntent.putExtra(SONG_NAME, currentMusic.getSongName());
+                currentlyPlayingIntent.putExtra(ARTIST_NAME, currentMusic.getArtistName());
+                currentlyPlayingIntent.putExtra(ALBUM_NAME, currentMusic.getAlbumName());
                 startActivity(currentlyPlayingIntent);
             }
         });
