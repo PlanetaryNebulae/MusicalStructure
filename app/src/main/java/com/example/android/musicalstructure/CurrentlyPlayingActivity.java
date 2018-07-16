@@ -2,6 +2,7 @@ package com.example.android.musicalstructure;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class CurrentlyPlayingActivity extends AppCompatActivity {
@@ -29,6 +30,18 @@ public class CurrentlyPlayingActivity extends AppCompatActivity {
             songName = extras.getString(SONG_NAME);
             artistName = extras.getString(ARTIST_NAME);
             albumName = extras.getString(ALBUM_NAME);
+
+            ImageView albumCoverImageView = findViewById(R.id.album_cover);
+            albumCoverImageView.setImageResource(albumCover);
+
+            TextView songTextView = findViewById(R.id.song_name);
+            songTextView.setText(songName);
+
+            TextView artistTextView = findViewById(R.id.artist_name);
+            artistTextView.setText(artistName);
+
+            TextView albumTextView = findViewById(R.id.album_name);
+            albumTextView.setText(albumName);
 
         }
     }

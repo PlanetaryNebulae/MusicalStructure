@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Selects the currently playing category
-        TextView playing = (TextView) findViewById(R.id.show_currently_playing);
 
         // Selects the songs category
         TextView songs = (TextView) findViewById(R.id.show_songs);
@@ -24,16 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Selects the albums category
         TextView albums = (TextView) findViewById(R.id.show_albums);
-
-        // Set a click listener on that View
-        playing.setOnClickListener(new View.OnClickListener() {
-            // The code in this method will be executed when the currently playing View is clicked on.
-            @Override
-            public void onClick(View view) {
-                Intent playingIntent = new Intent(MainActivity.this, CurrentlyPlayingActivity.class);
-                startActivity(playingIntent);
-            }
-        });
 
         songs.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the songs View is clicked on.

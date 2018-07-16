@@ -14,7 +14,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/show" />
+            android:padding="8dp"
+            android:text="@string/show"
+            android:textSize="@dimen/text_size" />
 
         <TextView
             android:id="@+id/show_songs"
@@ -34,10 +36,5 @@
             android:background="@color/darkBackground"
             android:text="@string/albums_list" />
 
-        <TextView
-            android:id="@+id/show_currently_playing"
-            style="@style/CategoryStyle"
-            android:background="@color/darkBackground"
-            android:text="@string/currently_playing" />
     </LinearLayout>
 </ScrollView>

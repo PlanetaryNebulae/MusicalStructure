@@ -1,12 +1,20 @@
 package com.example.android.musicalstructure;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class AlbumsActivity extends AppCompatActivity {
+
+    private static final String ALBUM_COVER = "album_cover";
+    private static final String SONG_NAME = "song_name";
+    private static final String ARTIST_NAME = "artist_name";
+    private static final String ALBUM_NAME = "album_name";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +22,7 @@ public class AlbumsActivity extends AppCompatActivity {
         setContentView(R.layout.music_list);
 
         //An array list of songs organized alphabetically by album.
-        ArrayList<Music> musics = new ArrayList<Music>();
+        final ArrayList<Music> musics = new ArrayList<Music>();
         musics.add(new Music("Left in the Snow", "No Mana", "Above the Blue EP", R.drawable.above_blue_cover));
         musics.add(new Music("Superliminal", "deadmau5", ">Album Title Goes Here<", R.drawable.album_title_cover));
         musics.add(new Music("Little Too Close", "WRLD", "Chase It EP", R.drawable.chase_it_cover));
@@ -41,5 +49,21 @@ public class AlbumsActivity extends AppCompatActivity {
         // Get a reference to the ListView, and attach the adapter to the listView.
         ListView listView = (ListView) findViewById(R.id.listview_music);
         listView.setAdapter(musicAdapter);
+
+        //When user clicks on a song, it takes them to the Currently Playing screen.
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+
+                Music currentMusic = musics.get(i);
+
+                Intent currentlyPlayingIntent = new Intent(AlbumsActivity.this, CurrentlyPlayingActivity.class);
+                currentlyPlayingIntent.putExtra(ALBUM_COVER, currentMusic.getImageResourceId());
+                currentlyPlayingIntent.putExtra(SONG_NAME, currentMusic.getSongName());
+                currentlyPlayingIntent.putExtra(ARTIST_NAME, currentMusic.getArtistName());
+                currentlyPlayingIntent.putExtra(ALBUM_NAME, currentMusic.getAlbumName());
+                startActivity(currentlyPlayingIntent);
+            }
+        });
     }
 }
