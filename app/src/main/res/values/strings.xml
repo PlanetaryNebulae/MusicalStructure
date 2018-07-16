@@ -8,4 +8,5 @@
     <string name="albums_list">Albums</string>
     <string name="organize_albums">Organized by Album</string>
     <string name="currently_playing">Currently Playing</string>
+    <string name="play_button">PLAY</string>
 </resources>
